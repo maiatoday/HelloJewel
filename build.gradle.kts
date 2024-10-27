@@ -9,6 +9,8 @@ plugins {
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
+    alias(libs.plugins.composeDesktop)
+    alias(libs.plugins.compose.compiler)
 }
 
 group = providers.gradleProperty("pluginGroup").get()
@@ -21,6 +23,7 @@ kotlin {
 
 // Configure project's dependencies
 repositories {
+    maven("https://packages.jetbrains.team/maven/p/kpm/public/")
     mavenCentral()
 
     // IntelliJ Platform Gradle Plugin Repositories Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-repositories-extension.html
@@ -32,6 +35,14 @@ repositories {
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
     testImplementation(libs.junit)
+
+    implementation(libs.jewel)
+
+    // Do not bring in Material (we use Jewel) and Coroutines (the IDE has its own)
+    api(compose.desktop.currentOs) {
+        exclude(group = "org.jetbrains.compose.material")
+        exclude(group = "org.jetbrains.kotlinx")
+    }
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {
