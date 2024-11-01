@@ -26,7 +26,7 @@ class MyToolWindowFactory : ToolWindowFactory, DumbAware {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         toolWindow.addSwingTab(MyToolWindow(toolWindow).getContent(), "Hi")
-        toolWindow.addComposeTab("My Test Tab") { MyTestTab() }
+        toolWindow.addComposeTab("Test") { MyTestTab(project) }
     }
 
     private fun ToolWindow.addSwingTab(component: JComponent, @TabTitle title: String) {

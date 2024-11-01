@@ -9,7 +9,7 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.maiatoday.hellojewel.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow anchor="bottom" factoryClass="com.github.maiatoday.hellojewel.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
 
     <applicationListeners>
