@@ -9,10 +9,16 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow anchor="bottom" factoryClass="com.github.maiatoday.hellojewel.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow anchor="bottom" factoryClass="com.github.maiatoday.hellojewel.toolWindow.MyToolWindowFactory"
+                    id="MyToolWindow"/>
+        <projectService
+                serviceInterface="com.github.maiatoday.hellojewel.services.DogAsAService"
+                serviceImplementation="com.github.maiatoday.hellojewel.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.maiatoday.hellojewel.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.maiatoday.hellojewel.listeners.MyApplicationActivationListener"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
 </idea-plugin>
