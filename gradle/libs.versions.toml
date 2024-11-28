@@ -3,7 +3,7 @@
 junit = "4.13.2"
 composeDesktop = "1.7.0"
 idea = "243.21155.17"
-kotlin = "2.0.21"
+kotlin = "2.1.0"
 jewel = "0.26.2"
 
 # plugins
